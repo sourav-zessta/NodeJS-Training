@@ -1,5 +1,4 @@
 import express from 'express';
-import 'dotenv/config';
 import {router} from './routes/router'
 import cors from 'cors';
 import { logger } from './middlewares/logger';
@@ -32,7 +31,6 @@ application.use(cors(corsOptions));
 application.use(authorization);
 
 const port = process.env.PORT || 10000
-
 application.use('/api/v1', router);
 application.listen(port, () => {
     console.log(`Alright i am listening at ${port}`)
